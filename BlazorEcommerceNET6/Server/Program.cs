@@ -1,6 +1,7 @@
 global using BlazorEcommerceNET6.Shared;
 global using Microsoft.EntityFrameworkCore;
 using BlazorEcommerceNET6.Server.Data;
+using BlazorEcommerceNET6.Server.Services.CategoryService;
 using BlazorEcommerceNET6.Server.Services.ProductService;
 using Microsoft.AspNetCore.ResponseCompression;
 
@@ -25,6 +26,7 @@ namespace BlazorEcommerceNET6
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             var app = builder.Build();
 
