@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Json;
-
+﻿
 namespace BlazorEcommerceNET6.Client.Services.ProductService
 {
     public class ProductService : IProductService
@@ -11,7 +10,7 @@ namespace BlazorEcommerceNET6.Client.Services.ProductService
             _http = http;
         }
 
-        public List<Product> Products { get; set; } = new List<Product>();
+        public List<Product> Products { get; set; }
 
         public event Action ProductsChanged;
 
@@ -23,7 +22,7 @@ namespace BlazorEcommerceNET6.Client.Services.ProductService
 
         public async Task GetProducts(string? categoryUrl = null)
         {
-            var result = categoryUrl == null ?
+            var result = categoryUrl == null ? 
                 await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product") :
                 await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/category/{categoryUrl}");
             if (result != null && result.Data != null)
