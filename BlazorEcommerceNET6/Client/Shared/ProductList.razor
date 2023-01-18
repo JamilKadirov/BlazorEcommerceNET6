@@ -16,7 +16,7 @@ else
                         <img class="media-img" src="@product.ImageUrl" alt="@product.Title" />
                     </a>
                 </div>
-                <div class="media-body mx-4">
+                <div class="media-body">
                     <a href="/product/@product.Id">
                         <h4 class="mb-0">@product.Title</h4>
                     </a>
@@ -28,6 +28,13 @@ else
             </li>
         }
     </ul>
+    for (int i = 1; i <= ProductService.PageCount; i++)
+    {
+        <a class="btn
+                 @(i == ProductService.CurrentPage ? "btn-info" : "btn-outline-info")
+                 page-selection"
+                 href="/search/@ProductService.LastSearchText/@i">@i</a>
+    }
 }
 
 @code {
