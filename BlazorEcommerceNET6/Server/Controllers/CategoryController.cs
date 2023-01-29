@@ -1,6 +1,4 @@
-﻿using BlazorEcommerceNET6.Server.Services.CategoryService;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorEcommerceNET6.Server.Controllers
 {

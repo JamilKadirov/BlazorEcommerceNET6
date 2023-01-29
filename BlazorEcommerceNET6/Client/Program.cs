@@ -1,8 +1,11 @@
 global using BlazorEcommerceNET6.Shared;
 global using System.Net.Http.Json;
+global using BlazorEcommerceNET6.Shared.DTO;
 using BlazorEcommerceNET6.Client;
+using BlazorEcommerceNET6.Client.Services.CartService;
 using BlazorEcommerceNET6.Client.Services.CategoryService;
 using BlazorEcommerceNET6.Client.Services.ProductService;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -16,9 +19,11 @@ namespace BlazorEcommerceNET6.Client
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
+            builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<ICartService, CartService>();
 
             await builder.Build().RunAsync();
         }
