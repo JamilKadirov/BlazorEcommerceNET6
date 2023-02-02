@@ -3,6 +3,7 @@ global using Microsoft.EntityFrameworkCore;
 global using BlazorEcommerceNET6.Server.Services.ProductService;
 global using BlazorEcommerceNET6.Server.Services.CategoryService;
 global using BlazorEcommerceNET6.Server.Services.CartService;
+global using BlazorEcommerceNET6.Server.Services.AuthService;
 using BlazorEcommerceNET6.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 
@@ -29,6 +30,7 @@ namespace BlazorEcommerceNET6
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<ICartService, CartService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             var app = builder.Build();
 
